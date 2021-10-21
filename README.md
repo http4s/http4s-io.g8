@@ -1,6 +1,6 @@
 # http4s giter8 template
 
-This template is fixed on `cats.effect.IO`.  For a final tagless version, see [http4s.g8](https://github.com/http4s/http4s-io.g8).
+This template is fixed on `cats.effect.IO`.  For a final tagless version, see [http4s.g8](https://github.com/http4s/http4s.g8).
 
 ## Instructions
 
