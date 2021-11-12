@@ -4,9 +4,9 @@ import cats.effect.IO
 import org.http4s.HttpRoutes
 import org.http4s.dsl.io._
 
-object $name;format="Camel"$Routes {
+object $name;format="Camel"$Routes:
 
-  def jokeRoutes(J: Jokes): HttpRoutes[IO] = {
+  def jokeRoutes(J: Jokes): HttpRoutes[IO] =
     HttpRoutes.of[IO] {
       case GET -> Root / "joke" =>
         for {
@@ -14,9 +14,8 @@ object $name;format="Camel"$Routes {
           resp <- Ok(joke)
         } yield resp
     }
-  }
 
-  def helloWorldRoutes(H: HelloWorld): HttpRoutes[IO] = {
+  def helloWorldRoutes(H: HelloWorld): HttpRoutes[IO] =
     HttpRoutes.of[IO] {
       case GET -> Root / "hello" / name =>
         for {
@@ -24,5 +23,3 @@ object $name;format="Camel"$Routes {
           resp <- Ok(greeting)
         } yield resp
     }
-  }
-}
