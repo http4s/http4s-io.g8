@@ -2,7 +2,6 @@
 // To test the template run `g8` or `g8Test` from the sbt session.
 // See https://www.foundweekends.org/giter8/testing.html#Using+the+Giter8Plugin for more details.
 
-ThisBuild / scalaVersion := "2.13.9"
 ThisBuild / githubWorkflowBuild := Seq(
   WorkflowStep.Sbt(
     List("g8Test"),
