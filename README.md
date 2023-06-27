@@ -7,10 +7,10 @@ This template is fixed on `cats.effect.IO`.  For a final tagless version, see [h
 Generate an http4s service on the blaze backend with Circe.
 
 1. [Install sbt](https://www.scala-sbt.org/1.x/docs/Setup.html)
-2. `sbt new http4s/http4s-io.g8`
+2. Create your project:
+   - Scala 2: `sbt new http4s/http4s-io.g8`
+   - Scala 3: `sbt new http4s/http4s-io.g8 --branch 0.23-scala3`
 3. `cd quickstart`
 4. `sbt run`
 5. `curl http://localhost:8080/hello/$USER`
 6. [Learn more](https://http4s.org/)
-
-You can try out any other supported as well, e.g. `sbt new http4s/http4s-io.g8 --branch 0.23-scala3`.
