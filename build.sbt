@@ -14,7 +14,7 @@ ThisBuild / githubWorkflowBuild := Seq(
       "gu install native-image",
       "cat native-image-readme.md | grep 'native-image  -H*' | sh"
     ),
-    cond = Some("startsWith(matrix.java, 'graalvm-')"),
+    cond = Some("startsWith(matrix.java, 'graalvm')"),
     name = Some("Build native assembly")
   )
 )
@@ -22,12 +22,13 @@ ThisBuild / githubWorkflowBuild := Seq(
 val PrimaryOS = "ubuntu-latest"
 val MacOS = "macos-latest"
 ThisBuild / githubWorkflowOSes := Seq(PrimaryOS, MacOS)
+ThisBuild / githubWorkflowJavaVersions := Seq(
+  JavaSpec.temurin("8"),
+  JavaSpec.temurin("11"),
+  JavaSpec.temurin("17"),
+  JavaSpec.graalvm("11")
+)
 ThisBuild / githubWorkflowPublishTargetBranches := Seq.empty
-
-val PrimaryJava = JavaSpec.temurin("8")
-val LTSJava = JavaSpec.temurin("17")
-val GraalVM11 = JavaSpec.graalvm("20.3.1", "11")
-ThisBuild / githubWorkflowJavaVersions := Seq(PrimaryJava, LTSJava, GraalVM11)
 
 lazy val root = project.in(file("."))
   .settings(

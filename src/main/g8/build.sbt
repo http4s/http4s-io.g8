@@ -24,5 +24,9 @@ lazy val root = (project in file("."))
       $endif$
     ),
     addCompilerPlugin("org.typelevel" %% "kind-projector"     % "0.13.2" cross CrossVersion.full),
-    addCompilerPlugin("com.olegpy"    %% "better-monadic-for" % "0.3.1")
+    addCompilerPlugin("com.olegpy"    %% "better-monadic-for" % "0.3.1"),
+    assembly / assemblyMergeStrategy := {
+      case "module-info.class" => MergeStrategy.discard
+      case x => (assembly / assemblyMergeStrategy).value.apply(x)
+    }
   )
