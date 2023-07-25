@@ -24,6 +24,5 @@ lazy val root = (project in file("."))
       $endif$
     ),
     addCompilerPlugin("org.typelevel" %% "kind-projector"     % "0.13.2" cross CrossVersion.full),
-    addCompilerPlugin("com.olegpy"    %% "better-monadic-for" % "0.3.1"),
-    testFrameworks += new TestFramework("munit.Framework")
+    addCompilerPlugin("com.olegpy"    %% "better-monadic-for" % "0.3.1")
   )
