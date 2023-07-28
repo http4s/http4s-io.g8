@@ -4,7 +4,7 @@ This template is fixed on `cats.effect.IO`.  For a final tagless version, see [h
 
 ## Instructions
 
-Generate an http4s service on the blaze backend with Circe.
+Generate an http4s service on the ember backend with Circe.
 
 1. [Install sbt](https://www.scala-sbt.org/1.x/docs/Setup.html)
 2. Create your project:
