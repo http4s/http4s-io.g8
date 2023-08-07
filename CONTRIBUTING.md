@@ -8,4 +8,4 @@ is a much more limited scope.
 This template is licensed under CC1.0 license, so please add your name to the bottom of the contributors list in the license file. Opening a pull request signifies your consent to license your contributions under the CC1.0 license.
 
 
-[contributors' guide]: http://http4s.org/contributing/
+[contributors' guide]: https://http4s.org/contributing/
