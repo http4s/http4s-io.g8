@@ -5,7 +5,7 @@ import org.http4s._
 import org.http4s.implicits._
 import munit.CatsEffectSuite
 
-class HelloWorldSpec extends CatsEffectSuite {
+class HelloWorldSpec extends CatsEffectSuite:
 
   test("HelloWorld returns status code 200") {
     assertIO(retHelloWorld.map(_.status) ,Status.Ok)
@@ -20,4 +20,3 @@ class HelloWorldSpec extends CatsEffectSuite {
     val helloWorld = HelloWorld.impl
     $name;format="Camel"$Routes.helloWorldRoutes(helloWorld).orNotFound(getHW)
   }
-}
