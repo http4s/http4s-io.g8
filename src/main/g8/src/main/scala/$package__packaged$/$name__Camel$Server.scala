@@ -3,7 +3,6 @@ package $package$
 import cats.effect.IO
 import cats.implicits._
 import org.http4s.implicits._
-import org.http4s.ember.client.EmberClientBuilder
 import com.comcast.ip4s._
 import org.http4s.ember.client.EmberClientBuilder
 import org.http4s.ember.server.EmberServerBuilder
