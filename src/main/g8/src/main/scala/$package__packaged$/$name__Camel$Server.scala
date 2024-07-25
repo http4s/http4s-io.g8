@@ -2,16 +2,16 @@ package $package$
 
 import cats.effect.IO
 import cats.implicits._
+import org.http4s.implicits._
 import com.comcast.ip4s._
 import org.http4s.ember.client.EmberClientBuilder
 import org.http4s.ember.server.EmberServerBuilder
-import org.http4s.implicits._
 import org.http4s.server.middleware.Logger
 
-object $name;format="Camel"$Server {
+object $name;format="Camel"$Server:
 
-  def run: IO[Nothing] = {
-    for {
+  def run: IO[Nothing] =
+    (for {
       client <- EmberClientBuilder.default[IO].build
       helloWorldAlg = HelloWorld.impl
       jokeAlg = Jokes.impl(client)
@@ -34,6 +34,4 @@ object $name;format="Camel"$Server {
           .withPort(port"8080")
           .withHttpApp(finalHttpApp)
           .build
-    } yield ()
-  }.useForever
-}
+    } yield ()).useForever
