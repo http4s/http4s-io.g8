@@ -18,7 +18,7 @@ ThisBuild / githubWorkflowJavaVersions := Seq(
 )
 ThisBuild / githubWorkflowPublishTargetBranches := Seq.empty
 
-val Http4sVersion = "0.23.28"
+val Http4sVersion = "0.23.29"
 val CirceVersion = "0.14.10"
 val MunitVersion = "1.0.2"
 val LogbackVersion = "1.5.12"
