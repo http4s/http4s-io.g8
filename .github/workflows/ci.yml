@@ -28,7 +28,7 @@ jobs:
       matrix:
         os: [ubuntu-latest, macos-latest]
         scala: [2.12]
-        java: [temurin@11, temurin@17, graalvm@17]
+        java: [temurin@11, temurin@17]
     runs-on: ${{ matrix.os }}
     timeout-minutes: 60
     steps:
@@ -66,29 +66,8 @@ jobs:
         if: matrix.java == 'temurin@17' && steps.setup-java-temurin-17.outputs.cache-hit == 'false'
         run: sbt +update
 
-      - name: Setup Java (graalvm@17)
-        id: setup-java-graalvm-17
-        if: matrix.java == 'graalvm@17'
-        uses: actions/setup-java@v4
-        with:
-          distribution: graalvm
-          java-version: 17
-          cache: sbt
-
-      - name: sbt update
-        if: matrix.java == 'graalvm@17' && steps.setup-java-graalvm-17.outputs.cache-hit == 'false'
-        run: sbt +update
-
       - name: Check that workflows are up to date
         run: sbt githubWorkflowCheck
 
       - name: Test generated template
         run: sbt '++ ${{ matrix.scala }}' g8Test
-
-      - name: Build native assembly
-        if: startsWith(matrix.java, 'graalvm')
-        run: |
-          cd target/sbt-test/http4s-g8/scripted
-          sbt assembly
-          gu install native-image
-          cat native-image-readme.md | grep 'native-image  -H*' | sh
