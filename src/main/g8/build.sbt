@@ -9,7 +9,7 @@ lazy val root = (project in file("."))
     organization := "$organization$",
     name := "$name;format="norm"$",
     version := "0.0.1-SNAPSHOT",
-    scalaVersion := "$scala_version$",
+    scalaVersion := "2.13.15",
     libraryDependencies ++= Seq(
       "org.http4s"      %% "http4s-ember-server" % Http4sVersion,
       "org.http4s"      %% "http4s-ember-client" % Http4sVersion,
