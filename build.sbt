@@ -6,16 +6,6 @@ ThisBuild / githubWorkflowBuild := Seq(
   WorkflowStep.Sbt(
     List("g8Test"),
     name = Some("Test generated template")
-  ),
-  WorkflowStep.Run(
-    List(
-      "cd target/sbt-test/http4s-g8/scripted",
-      "sbt assembly",
-      "gu install native-image",
-      "cat native-image-readme.md | grep 'native-image  -H*' | sh"
-    ),
-    cond = Some("startsWith(matrix.java, 'graalvm')"),
-    name = Some("Build native assembly")
   )
 )
 
@@ -24,15 +14,14 @@ val MacOS = "macos-latest"
 ThisBuild / githubWorkflowOSes := Seq(PrimaryOS, MacOS)
 ThisBuild / githubWorkflowJavaVersions := Seq(
   JavaSpec.temurin("11"),
-  JavaSpec.temurin("17"),
-  JavaSpec.graalvm("17")
+  JavaSpec.temurin("17")
 )
 ThisBuild / githubWorkflowPublishTargetBranches := Seq.empty
 
-val Http4sVersion = "0.23.27"
-val CirceVersion = "0.14.9"
-val MunitVersion = "1.0.0"
-val LogbackVersion = "1.5.6"
+val Http4sVersion = "0.23.29"
+val CirceVersion = "0.14.10"
+val MunitVersion = "1.0.2"
+val LogbackVersion = "1.5.12"
 val MunitCatsEffectVersion = "2.0.0"
 
 lazy val root = project.in(file("."))
@@ -48,9 +37,9 @@ lazy val root = project.in(file("."))
       "org.typelevel"   %% "munit-cats-effect"   % MunitCatsEffectVersion % Test,
       "ch.qos.logback"  %  "logback-classic"     % LogbackVersion         % Runtime,
     ),
-    addSbtPlugin("org.typelevel" % "sbt-tpolecat" % "0.5.1"),
+    addSbtPlugin("org.typelevel" % "sbt-tpolecat" % "0.5.2"),
     addSbtPlugin("io.spray" % "sbt-revolver" % "0.10.0"),
-    addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "2.2.0"),
+    addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "2.3.0"),
     Test / test := {
       val _ = (Test / g8Test).toTask("").value
     },

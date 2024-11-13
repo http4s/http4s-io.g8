@@ -1,7 +1,7 @@
-val Http4sVersion = "0.23.27"
-val CirceVersion = "0.14.9"
-val MunitVersion = "1.0.0"
-val LogbackVersion = "1.5.6"
+val Http4sVersion = "0.23.29"
+val CirceVersion = "0.14.10"
+val MunitVersion = "1.0.2"
+val LogbackVersion = "1.5.12"
 val MunitCatsEffectVersion = "2.0.0"
 
 lazy val root = (project in file("."))
@@ -17,7 +17,7 @@ lazy val root = (project in file("."))
       "org.http4s"      %% "http4s-dsl"          % Http4sVersion,
       "org.scalameta"   %% "munit"               % MunitVersion           % Test,
       "org.typelevel"   %% "munit-cats-effect"   % MunitCatsEffectVersion % Test,
-      "ch.qos.logback"  %  "logback-classic"     % LogbackVersion,
+      "ch.qos.logback"  %  "logback-classic"     % LogbackVersion
     ),
     assembly / assemblyMergeStrategy := {
       case "module-info.class" => MergeStrategy.discard
