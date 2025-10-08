@@ -1,7 +1,6 @@
 package $package$
 
 import cats.effect.IO
-import cats.implicits._
 import io.circe.generic.semiauto._
 import io.circe.{Decoder, Encoder}
 import org.http4s.Method._
