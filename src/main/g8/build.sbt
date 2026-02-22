@@ -1,7 +1,7 @@
 val Http4sVersion = "0.23.33"
 val CirceVersion = "0.14.15"
 val MunitVersion = "1.2.2"
-val LogbackVersion = "1.5.27"
+val LogbackVersion = "1.5.32"
 val MunitCatsEffectVersion = "2.1.0"
 
 lazy val root = (project in file("."))
