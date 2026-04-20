@@ -1,4 +1,4 @@
-val Http4sVersion = "0.23.33"
+val Http4sVersion = "0.23.34"
 val CirceVersion = "0.14.15"
 val MunitVersion = "1.3.0"
 val LogbackVersion = "1.5.32"
@@ -9,7 +9,7 @@ lazy val root = (project in file("."))
     organization := "$organization$",
     name := "$name;format="norm"$",
     version := "0.0.1-SNAPSHOT",
-    scalaVersion := "2.13.16",
+    scalaVersion := "2.13.18",
     libraryDependencies ++= Seq(
       "org.http4s"      %% "http4s-ember-server" % Http4sVersion,
       "org.http4s"      %% "http4s-ember-client" % Http4sVersion,
@@ -20,7 +20,7 @@ lazy val root = (project in file("."))
       "org.typelevel"   %% "munit-cats-effect"   % MunitCatsEffectVersion % Test,
       "ch.qos.logback"  %  "logback-classic"     % LogbackVersion
     ),
-    addCompilerPlugin("org.typelevel" %% "kind-projector"     % "0.13.3" cross CrossVersion.full),
+    addCompilerPlugin("org.typelevel" %% "kind-projector"     % "0.13.4" cross CrossVersion.full),
     addCompilerPlugin("com.olegpy"    %% "better-monadic-for" % "0.3.1"),
     assembly / assemblyMergeStrategy := {
       case "module-info.class" => MergeStrategy.discard
