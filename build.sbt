@@ -39,7 +39,7 @@ lazy val root = project.in(file("."))
     ),
     addSbtPlugin("org.typelevel" % "sbt-tpolecat" % "0.5.6"),
     addSbtPlugin("io.spray" % "sbt-revolver" % "0.10.0"),
-    addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "2.3.1"),
+    addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "2.5.0"),
     Test / test := {
       val _ = (Test / g8Test).toTask("").value
     },
